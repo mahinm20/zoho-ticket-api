@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<form action="" method="post">
+    
+    {% csrf_token %}
+    Department :
+    {{form.department}}
+    <br>
+    Category:
+    {{form.category}}
+    <br>
+    URL :
+    {{form.url}}
+    <br>
+    Description :
+    {{form.description}}
+    <br>
+    <h2> Contact  Details</h2>
+    Name :
+    {{form.contact_name}}
+    <br>
+    Email :
+    {{form.email}}
+    <br>
+    Number :
+    {{form.contact_number}}
+    <br>
+    Priority :
+    {{form.priority}}
+    <br>
+    <h2>
+        Additional Details
+    </h2>
+
+
+    File :
+    {{form.files}}
+    <br>
+    <input type="submit" >
+   
+
+</form>
+
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-
+from .forms import TicketForm
 
 def signUp(request):
     if request.method == 'POST':
@@ -39,3 +39,16 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return HttpResponse('Logged out')
+
+
+def new_ticket(request):
+
+	form = TicketForm()
+
+	if request.method == 'POST':
+		form = TicketForm(request.POST)
+		if form.is_valid():
+			form.save()
+			
+	context = {'form':form}
+	return render(request, 'ticketapi/newticket.html', context)

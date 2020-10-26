@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ticketapi.views import signUp, login, logout
+from ticketapi.views import signUp, login, logout, new_ticket
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('signup/',signUp,name="signup"),
     path('',login,name="login"),
-    path('logout/',logout,name="logout")
+    path('logout/',logout,name="logout"),
+    path('newticket',new_ticket,name="newticket"),
 ]
